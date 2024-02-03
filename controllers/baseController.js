@@ -6,4 +6,9 @@ baseController.buildHome = async function(req, res){
   res.render("index", {title: "Home", nav})
 }
 
+//Error link at bottom in footer.
+baseController.buildError = async function(req, res){
+  res.render("./views/errors/error", {title: "Error", nav})
+}
+
 module.exports = baseController
