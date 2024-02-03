@@ -191,6 +191,48 @@ main {
   margin: 10px 5px;
 }
 
+/* Car Classification Display */
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 15px;
+  padding-left: 0;
+  margin: 15px;
+}
+
+.inv-card {
+  border: 2px solid black;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+/* Individual Vehicle Display */
+.vehicle-cont {
+  padding: 20px 10px 50px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.vehicle-cont img {
+  padding: 10px;
+  height: auto;
+  width: 100%;
+}
+
+.vehicle-details {
+  font-size: 1.2em;
+}
+.bold {
+  font-weight: bolder;
+  background-color: #00b1d0;
+}
+
 /* footer components */
 
 footer {
