@@ -12,3 +12,4 @@ baseController.buildError = async function(req, res){
 }
 
 module.exports = baseController
+module.exports = baseController
