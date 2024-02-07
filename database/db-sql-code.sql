@@ -2,7 +2,7 @@ CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
 
 ALTER TYPE public.account_type
-    OWNER TO cse340_4;
+    OWNER TO cse340_6;
 
 -- Table structure for table classification
 CREATE TABLE public.classification (
@@ -241,5 +241,5 @@ VALUES   (
 	--Update the inventory table to add "/vehicle in the middle of the file path in the inv_image and inv_thumbnail columns "
 UPDATE public.inventory
 SET
-	inv_image = REPLACE (inv_image, '/images/', '/images/vehicles'),
-	inv_thumbnail = REPLACE (inv_thumbnail, '/images/', 'images/vehicles/');
+	inv_image = REPLACE (inv_image, '/images/', './images/vehicles'),
+	inv_thumbnail = REPLACE (inv_thumbnail, '/images/', './images/vehicles/');
