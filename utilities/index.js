@@ -33,50 +33,30 @@ Util.buildClassificationGrid = async function (data) {
     grid = '<div class="inv-container" id="inv-display">';
     data.forEach((vehicle) => {
       grid += '<div class="inv-card">';
-      grid +=
-        '<a href="../../inv/detail/' +
-        vehicle.inv_id +
-        '" title="View ' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        'details"><img src="' +
-        vehicle.inv_thumbnail +
-        '" alt="Image of ' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        ' on CSE Motors"></a>';
+      grid +='<a href="../../inv/detail/' + vehicle.inv_id +
+        '" title="View ' + vehicle.inv_make + " " + vehicle.inv_model +
+        'details"><img src="' + vehicle.inv_thumbnail + 
+        '" alt="Image of ' + vehicle.inv_make + " " + vehicle.inv_model 
+        + ' on CSE Motors"></a>';
       grid += '<div class="namePrice">';
       grid += "<hr>";
       grid += "<h2>";
-      //** Added class to try and make css easier
-      grid +=
-        '<a class="vehicle-image" href="../../inv/detail/' +
-        vehicle.inv_id +
-        '" title="View ' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        ' details">' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        "</a>";
+      //** Adding a class to try and make css styling easier
+      grid += '<a class="vehicle-image" href="../../inv/detail/' + vehicle.inv_id + '" title="View ' +
+        vehicle.inv_make + " " + vehicle.inv_model + ' details">' +
+        vehicle.inv_make + " " + vehicle.inv_model + "</a>";
       grid += "</h2>";
-      grid +=
-        "<span>$" +
-        new Intl.NumberFormat("en-US").format(vehicle.inv_price) +
-        "</span>";
+      grid += "<span>$" +
+        new Intl.NumberFormat("en-US").format(vehicle.inv_price) + "</span>";
       grid += "</div>";
       grid += "</div>";
-    });
+    })
     grid += "</div>";
   } else {
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>';
+    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
   }
-  return grid;
-};
+  return grid
+}
 
 /* ***********************************
 * Build individual vehicle view HTML

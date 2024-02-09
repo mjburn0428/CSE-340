@@ -238,8 +238,8 @@ VALUES   (
     5
   );
 
-	--Update the inventory table to add "/vehicle in the middle of the file path in the inv_image and inv_thumbnail columns "
-UPDATE public.inventory
-SET
-	inv_image = REPLACE (inv_image, '/images/', './images/vehicles'),
-	inv_thumbnail = REPLACE (inv_thumbnail, '/images/', './images/vehicles/');
+-- Update the inventory table to add "/vehicles" to the middle of the file path in the inv_image and inv_thumbnail columns
+UPDATE public.inventory 
+SET 
+    inv_image = REPLACE (inv_image, '/images/', '/images/vehicles/'), 
+    inv_thumbnail = REPLACE (inv_thumbnail, '/images/', '/images/vehicles/');

@@ -8,15 +8,8 @@
         "program": "${workspaceFolder}/server.js",
         "request": "launch",
         "skipFiles": [
-            "<node_internals>/**"
+          "<node_internals>/**"
         ],
-        "type": "node"
-    },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open classification.ejs",
-            "file": "c:\\Users\\JoeVT\\OneDrive\\CSE340\\CSE-340\\views\\inventory\\classification.ejs"
-        }
-    ]
+        "type": "node",
+    }]
 }
