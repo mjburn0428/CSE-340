@@ -15,7 +15,7 @@ VALUES (
 --Update Tony Stark's account type to Admin
 UPDATE public.account SET account_type ='Admin' WHERE account_id = 1;
 
---Delete Tomny Stark account from database
+--Delete Tony Stark account from database
 DELETE FROM public.account WHERE account_id = 1;
 
 --Change GM Hummer from 'small interiors' to 'a huge interior'
@@ -23,7 +23,7 @@ UPDATE public.inventory
 SET inv_description = REPLACE (inv_description, 'the small interiors', 'a huge interior')
 WHERE inv_id = 10;
 
---Inner join to select make and model from inventory based on vehicle classification or 'Sport'
+--Inner join to select make and model from inventory based on vehicle classification of 'Sport'
 SELECT 
 	inv_make, 
 	inv_model
