@@ -1,5 +1,6 @@
 const { Pool } = require("pg")
 require("dotenv").config()
+
 /* ***************
  * Connection Pool
  * SSL Object needed for local testing of app
@@ -15,8 +16,7 @@ if (process.env.NODE_ENV == "development") {
     },
 })
 
-// Added for troubleshooting queries
-// during development
+// Added to troubleshoot queries during development phase.
 module.exports = {
   async query(text, params) {
     try {
