@@ -286,10 +286,10 @@ main {
 
 /* footer components */
 
-footer {
-  background-color: white; 
-  color: #212529; 
+footer { 
+  color: royalblue; 
   text-align: center;
+  background-color: mintcream;
   padding: 5px;
   position: fixed;
   left: 0;
@@ -299,7 +299,7 @@ footer {
 
 .copyright {
   margin: 0;
-  font-size: 0.8em; 
+  font-size: 0.9em; 
 }
 
 /* navigation components */
