@@ -7,7 +7,7 @@
  *************************/
 const expressLayouts = require("express-ejs-layouts")
 const express = require("express")
-const env = require("dotenv").config()
+const dotenv = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
@@ -31,16 +31,15 @@ app.set("layout", "./layouts/layout")
 app.use(static)
 
 // Index route 
-app.get("/", utilities.handleErrors(baseController.buildHome));
+app.get("/", utilities.handleErrors(baseController.buildHome))
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+  next({status: 404, message: 'Sorry, we appear to have lost that page you were looking for.'})
 })
-
 
 /* ***********************
 * Express Error Handler
@@ -52,10 +51,10 @@ app.use(async (err, req, res, next) => {
   if (err.status == 404) {message = err.message;
   }
   if (err.status == 500) {message = err.message;
-  } else {message = "Oh no! There was a crash. Maybe try different route?";
+  } else {message = "Oh no! It appears our server has crashed!";
   }
   res.render("errors/error", {
-    title: err.status || "Server Error",
+    title: err.status || "500 Server Error",
     message,
     nav,
   });

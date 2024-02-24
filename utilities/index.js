@@ -71,12 +71,17 @@ Util.buildModelGrid = async function(data){
   grid += '<li>' + '<span class="bold">' + "Price: " + '</span>' + "$" + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</li>'
   grid += '<li>' + '<span class="bold">' + "Description: " + '</span>' + vehicle.inv_description + '</li>'
   grid += '<li>' + '<span class="bold">' + "Color: " + '</span>' + vehicle.inv_color + '</li>'
-  grid += '<li>' + '<span class="bold">' + "Miles: " + '</span>' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</li>'
+  grid += '<li>' + '<span class="bold">' + "Mileage: " + '</span>' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</li>'
   grid += '</ul>'
   grid += '</div>'
   grid += '</section>'
   return grid
-}
+};
+
+Util.buildBrokenPage = function() {
+  let broken = "";
+  return broken;
+};
 
 /* ****************************************
  * Middleware For Handling Errors
@@ -87,12 +92,5 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 
 module.exports = Util
 
-/* ****************************************
- * Middleware For Handling Errors
- * Wrap other function in this for 
- * General Error Handling
- **************************************** */
-Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 
-module.exports = Util

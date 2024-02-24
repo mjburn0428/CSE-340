@@ -274,7 +274,7 @@ main {
 }
 .bold {
   font-weight: bolder;
-  background-color: #02c78c;
+  background-color: #00ffb3;
   padding: 0;
 }
 
@@ -438,8 +438,8 @@ button.own-today {
   #wrapper {
     margin: 1px auto;
     padding: 5px;
-    border: 5px solid rgb(9, 151, 137);
-    border-radius: 10px;
+    border: 5px solid rgb(2, 189, 170);
+    border-radius: 5px;
   }
 
   .card {
