@@ -1,0 +1,96 @@
+<!-- ************************
+*   Add Inventory View
+************************* -->
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<%- messages()  %>
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+<% } %>
+
+<div class="form-box">
+    <form action="/inv/add-inventory" method="post">
+        <div>
+            <h3>All fields are required.</h3>
+        </div>
+        <div class="inv-label">
+            <label for="select_classification">Classification: </label>
+            <%- selectList %>
+        </div>
+        <br>
+         <div class="inv-label"> 
+        <label for="make">Make:</label>
+        <input id="make" name="inv_make" type="text" placeholder="Min of 3 characters" 
+            required
+            value="<%= locals.inv_make %>" > 
+        </div>  
+
+        <div class="inv-label">
+        <label for="model">Model:</label>
+        <input id="model" name="inv_model" type="text" placeholder="Min of 3 characters" 
+            required
+            value="<%= locals.inv_model %>" > 
+        </div>
+
+        <div class="inv-label">
+        <label for="year">Year:</label>
+        <input id="year" name="inv_year" type="number" placeholder="Please enter the 4-digit year" 
+            required
+            value="<%= locals.inv_year %>" > 
+        </div>
+
+        <div class="inv-label">       
+        <label for="description">Description: </label>
+        <textarea id="description" name="inv_description" placeholder="Please Enter the description" required><%= locals.inv_description %></textarea>
+        </div> 
+
+        <div class="inv-label">
+        <label for="image">Image:</label>
+        <input id="image" name="inv_image" type="text" placeholder="Please insert an image. If none use no-image.png." 
+            required 
+            value="/images/vehicles/no-image.png"> 
+        </div> 
+
+        <div class="inv-label">
+        <label for="thumbnail">Thumbnail:</label>
+        <input id="thumbnail" name="inv_thumbnail" type="text" placeholder="Please insert a thumbnail image. If none, use no-image.png." 
+            required 
+            value="/images/vehicles/no-image.png"> 
+        </div>
+
+        <div class="inv-label">
+        <label for="price">Price:</label>
+        <input id="price" name="inv_price" type="number" placeholder="Please insert the price as a decimal or integer" 
+            required
+            value="<%= locals.inv_price %>" > 
+        </div>
+
+        <div class="inv-label">
+        <label for="miles">Miles:</label>
+        <input id="miles" name="inv_miles" type="number" placeholder="Please insert the miles as digits only" 
+            required
+            value="<%= locals.inv_miles %>" > 
+        </div>
+
+        <div class="inv-label">
+        <label for="color">Color:</label>
+        <input id="color" name="inv_color" type="text" placeholder="Please insert the color of the vehicle" 
+            required
+            value="<%= locals.inv_color %>" > 
+        </div>
+
+        <br>
+        <button type="submit" class="form-btn">Add Vehicle</button>
+
+    </form>
+</div>

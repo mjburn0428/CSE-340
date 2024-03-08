@@ -1,0 +1,35 @@
+<!-- ************************
+*   Add Classification View
+************************* -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<%- messages()  %>
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+<% } %>
+
+<div class="form-box">
+    <form action="/inv/add-classification" method="post">
+        <div class="inv-label">
+            <label for="classification_name">Classification Name: </label>
+            <p>Name must be alphabetic characters only.</p>
+            <input id="classification_name" name="add_classification" type="text" placeholder="Add the Classification Name" 
+                required 
+                value="<%= locals.add_classification %>"
+                pattern="[a-zA-Z]*" > 
+        </div>
+
+        <button type="submit" class="form-btn">Add Classification</button>
+
+
+    </form>
+</div>

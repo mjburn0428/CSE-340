@@ -285,6 +285,7 @@ main {
 }
 
 /* LOGIN AND REGISTER PAGES */
+
 .login-title {
   font-size: 2.2em;
 }
@@ -332,18 +333,111 @@ form input {
   color: white;
 }
 
+/*** Remove the arrows on number inputs ***/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* ***********************
+* INPUT VALIDATION STYLING
+* ********************* */
+
+input:required:invalid, input:focus:invalid {
+  /* Invalid input */
+  border: 2px solid red;
+  background-color: rgb(248, 190, 190);
+  
+}
+textarea:required:invalid, textarea:focus:invalid {
+  /* Invalid input */
+  border: 2px solid red;
+  background-color: rgb(248, 190, 190);
+  
+}
+
+/* Valid Input */
+
+input:required:valid {
+  border: 2px solid green;
+  background-color: rgb(210, 244, 210);
+}
+textarea:required:valid {
+  border: 2px solid green;
+  background-color: rgb(215, 255, 215);
+}
+
+/* *********************
+* ADD INVENTORY FORM BOX
+************************ */
+textarea {
+  color: #007bff;
+  min-height: 200px;
+  font-size: 1.0em;
+}
+.inv-label label {
+  font-size: 1.0em;
+}
+
+.form-box {
+  max-width: 100%;
+}
+
+select {
+  background-color: rgb(255, 255, 255);
+  margin-top: 15px;
+  padding: 5px 20px .5px 1px;
+  font-size: 1rem;
+}
+
+select:hover{
+  background-color: rgb(2, 117, 121);
+  color: white;
+}
+
+/* *********************
+* ADD MANAGEMENT FORM BOX
+************************ */
+
+.management {
+  display: grid;
+  gap: 2em;
+  background-color: #187a8d;
+  text-align: center;
+  padding: 2em;
+  margin: 25%;
+  max-width: 400px;
+}
+.management a {
+  font-size: larger;
+  background-color: white;
+  padding: 5px;
+  justify-content: center;
+}
+.management a:hover {
+  background-color: rgb(2, 146, 122);
+  color: white;
+}
+
 
 /* footer components */
 
-footer { 
-  color: royalblue; 
+footer{
+  margin-top: 2rem;
   text-align: center;
-  background-color: mintcream;
-  padding: 5px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+}
+ 
+footer p {
+  margin: 0;
+  padding: 0;
+  font-size: .9rem;
+  text-align: center;
+}
+ 
+hr {
+  border: 2px solid var(--primary-text);
+  margin: 0;
 }
 
 .copyright {
