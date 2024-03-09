@@ -13,11 +13,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
   const grid = await utilities.buildClassificationGrid(data);
   let nav = await utilities.getNav();
   const className = data[0].classification_name;
-  res.render("./inventory/classification", {
-    title: className + " vehicles",
-    nav,
-    grid,
-  });
+  res.render("./inventory/classification", {title: className + " vehicles", nav, grid,});
 };
 
 /*******************************
@@ -66,9 +62,8 @@ invCont.AddNewClassification = async function (req, res, next) {
 
   const classResult = await invModel.addClassification(add_classification);
   if (classResult) {
-    req.flash(
-      "notice",
-      `Congratulations, you\'ve created the ${add_classification} classification!`,
+    req.flash("notice",
+     `Congratulations, you\'ve created the ${add_classification} classification!`,
     );
     res.status(201).render("./inventory/management", {
       title: "Vehicle Management",
@@ -76,8 +71,7 @@ invCont.AddNewClassification = async function (req, res, next) {
       errors: null,
     });
   } else {
-    req.flash(
-      "notice",
+    req.flash("notice",
       "Sorry, that classification did not work. Please try again",
     );
     res.status(501).render("./inventory/add-classification", {
@@ -93,31 +87,10 @@ invCont.AddNewClassification = async function (req, res, next) {
  * ************************** */
 invCont.AddNewInventory = async function (req, res, next) {
   let nav = await utilities.getNav();
-  const {
-    inv_make,
-    inv_model,
-    inv_year,
-    inv_description,
-    inv_image,
-    inv_thumbnail,
-    inv_price,
-    inv_miles,
-    inv_color,
-    classification_id,
-  } = req.body;
+  const {inv_make, inv_model, inv_year, inv_description, inv_image,inv_thumbnail, inv_price, inv_miles, inv_color, classification_id,} 
+  = req.body;
 
-  const invResult = await invModel.addInventory(
-    inv_make,
-    inv_model,
-    inv_year,
-    inv_description,
-    inv_image,
-    inv_thumbnail,
-    inv_price,
-    inv_miles,
-    inv_color,
-    classification_id,
-  );
+  const invResult = await invModel.addInventory(inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id,);
 
   if (invResult) {
     req.flash(

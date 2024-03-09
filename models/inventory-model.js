@@ -59,8 +59,7 @@ async function addClassification(add_classification) {
  * ************************************************************************ */
 async function checkExistingClassification(add_classification) {
   try {
-    const sql =
-      "SELECT * FROM public.classification WHERE classification_name = $1";
+    const sql ="SELECT * FROM public.classification WHERE classification_name = $1";
     const classification = await pool.query(sql, [add_classification]);
     return classification.rowCount;
   } catch (error) {
@@ -72,41 +71,18 @@ async function checkExistingClassification(add_classification) {
  Funtion to get the classifications by id
  * ***************************************** */
 async function getClassificationsById() {
-  return await pool.query(
-    "SELECT * FROM public.classification ORDER BY classification_name",
-  );
+  return await pool.query("SELECT * FROM public.classification ORDER BY classification_name",);
 }
 
 /* ********************************************
    Insert new inventory item into the database
  * ***************************************** */
-async function addInventory(
-  inv_make,
-  inv_model,
-  inv_year,
-  inv_description,
-  inv_image,
-  inv_thumbnail,
-  inv_price,
-  inv_miles,
-  inv_color,
-  classification_id,
+async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id,
 ) {
   try {
     const sql =
       "INSERT INTO public.inventory (inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
-    return await pool.query(sql, [
-      inv_make,
-      inv_model,
-      inv_year,
-      inv_description,
-      inv_image,
-      inv_thumbnail,
-      inv_price,
-      inv_miles,
-      inv_color,
-      classification_id,
-    ]);
+    return await pool.query(sql, [inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id,]);
   } catch (error) {
     return error.message;
   }

@@ -8,8 +8,6 @@ const validate = {};
  *  ********************************* */
 validate.classificationRules = () => {
   return [
-    // add_classification is required and also checks to see if the
-    // add_classification is already inside of the database (.custom)
     body("add_classification")
       .trim()
       .isLength({ min: 4 })
@@ -19,9 +17,7 @@ validate.classificationRules = () => {
         const classificationExists =
           await invModel.checkExistingClassification(add_classification);
         if (classificationExists) {
-          throw new Error(
-            "Classification with that name already exists. Please try different name.",
-          );
+          throw new Error("Classification with that name already exists. Please try different name.",);
         }
       }),
   ];
