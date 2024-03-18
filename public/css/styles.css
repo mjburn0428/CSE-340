@@ -420,6 +420,30 @@ select:hover{
   color: white;
 }
 
+/* *********************
+* ADD MANAGEMENT FORM BOX
+************************ */
+
+.management {
+  display: grid;
+  gap: 2em;
+  background-color: #187a8d;
+  text-align: center;
+  padding: 2em;
+  margin: 25%;
+  max-width: 400px;
+}
+.management a {
+  font-size: larger;
+  background-color: white;
+  padding: 5px;
+  justify-content: center;
+}
+.management a:hover {
+  background-color: rgb(2, 146, 122);
+  color: white;
+}
+
 
 /* footer components */
 

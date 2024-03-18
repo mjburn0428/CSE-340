@@ -24,6 +24,14 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin));
 
 router.get("/register", utilities.handleErrors(accountController.buildRegister),);
 
+/* ***********************************
+ * Deliver account view
+  * ******************************** */
+router.get(
+  "/",  
+  utilities.handleErrors(accountController.buildManagement)
+);
+
 /* *************************************
  * Process Registration
  * Unit 4, process registration activity
@@ -39,9 +47,7 @@ router.post(
 // Process the login attempt
 router.post(
   "/login",
-  (req, res) => {
-    res.status(200).send('login process')
-  }
+  utilities.handleErrors(accountController.accountLogin)
 )
 
 module.exports = router;
