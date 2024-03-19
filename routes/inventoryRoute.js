@@ -24,6 +24,22 @@ router.get(
   utilities.handleErrors(invController.getInventoryJSON)
 )
 
+/* *******************************
+ * Get inventory for the edit-view
+  * **************************** */
+router.get(
+  "/edit/:inv_id",
+  utilities.handleErrors(invController.editInventoryView)
+)
+
+/* *****************************
+ * Update inventory data
+ * ************************** */
+router.post(
+  "/update/", 
+  utilities.handleErrors(invController.updateInventory)
+)
+
   // Route to build add-classification view
 router.get("/add-classification", invController.BuildAddClassification);
 
