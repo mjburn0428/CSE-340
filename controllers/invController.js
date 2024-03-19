@@ -33,7 +33,9 @@ invCont.buildByModelId = async function (req, res, next) {
  * ******************* */
 invCont.buildManagement = async function (req, res, next) {
   let nav = await utilities.getNav()
-  res.render("./inventory/management", {title: "CSE Motors Vehicle Management Menu", nav, errors: null,})
+  const { classification_id } = req.body
+  const selectList = await utilities.getClassifications(classification_id)
+  res.render("./inventory/management", {title: "CSE Motors Vehicle Management Menu", nav, selectList, errors: null,})
 }
 
 /* ******************************
@@ -114,5 +116,18 @@ invCont.AddNewInventory = async function (req, res, next) {
     });
   }
 };
+
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+invCont.getInventoryJSON = async (req, res, next) => {
+  const classification_id = parseInt(req.params.classification_id)
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  if (invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
+  }
+}
 
 module.exports = invCont;

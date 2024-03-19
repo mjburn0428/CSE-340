@@ -16,6 +16,14 @@ router.get("/detail/:inventoryId",utilities.handleErrors(invController.buildByMo
   // Route to build management view
   router.get("/", invController.buildManagement);
 
+  /* *******************************
+ * Get inventory for AJAX Route
+ * **************************** */
+router.get(
+  "/getInventory/:classification_id",
+  utilities.handleErrors(invController.getInventoryJSON)
+)
+
   // Route to build add-classification view
 router.get("/add-classification", invController.BuildAddClassification);
 

@@ -28,7 +28,8 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister),
  * Deliver account view
   * ******************************** */
 router.get(
-  "/",  
+  "/",
+  utilities.checkLogin,  
   utilities.handleErrors(accountController.buildManagement)
 );
 
