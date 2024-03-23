@@ -35,40 +35,25 @@ Util.buildClassificationGrid = async function (data) {
     grid = '<ul id="inv-display">';
     data.forEach((vehicle) => {
       grid += "<li>";
-      grid +=
-        '<a href="../../inv/detail/' +
-        vehicle.inv_id +
-        '" title="View ' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        'details"><img src="' +
-        vehicle.inv_thumbnail +
-        '" alt="Image of ' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        ' on CSE Motors" /></a>';
+      grid +='<a href="../../inv/detail/' +
+        vehicle.inv_id +'" title="View ' 
+        +vehicle.inv_make +" " +
+        vehicle.inv_model +'details"><img src="' +
+        vehicle.inv_thumbnail +'" alt="Image of ' +
+        vehicle.inv_make +" " +
+        vehicle.inv_model +' on CSE Motors" /></a>';
       grid += '<div class="namePrice">';
       grid += "<hr />";
       grid += "<h2>";
-      grid +=
-        '<a href="../../inv/detail/' +
-        vehicle.inv_id +
-        '" title="View ' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        ' details">' +
-        vehicle.inv_make +
-        " " +
-        vehicle.inv_model +
-        "</a>";
+      grid +='<a href="../../inv/detail/' +
+        vehicle.inv_id +'" title="View ' +
+        vehicle.inv_make +" " +
+        vehicle.inv_model +' details">' +
+        vehicle.inv_make +" " +
+        vehicle.inv_model +"</a>";
       grid += "</h2>";
-      grid +=
-        "<span>$" +
-        new Intl.NumberFormat("en-US").format(vehicle.inv_price) +
-        "</span>";
+      grid +="<span>$" +
+        new Intl.NumberFormat("en-US").format(vehicle.inv_price) +"</span>";
       grid += "</div>";
       grid += "</li>";
     });
@@ -95,7 +80,6 @@ Util.buildDetailView = async function (vehicle) {
         <p>Price: $${formatter.format(vehicle.inv_price)}</p>
         <p>Mileage: ${formatter.format(vehicle.inv_miles)} miles</p>
         <p>Color: ${vehicle.inv_color}</p>
-        <button>Buy Now</button>
       </div>
     </div>
   `;
@@ -124,14 +108,12 @@ Util.buildDropdown = async function () {
 
 /* **************************************
  * Middleware for handling errors
- * Wrap other function in this for
- * general error handling
  * ************************************ */
 Util.handleError = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
 
 /* ****************************************
- * Middleware to check token validity
+ * Middleware to check JWT token validity
  **************************************** */
 Util.checkJWTToken = (req, res, next) => {
   if (req.cookies.jwt) {
@@ -167,7 +149,7 @@ Util.checkLogin = (req, res, next) => {
 };
 
 /* ****************************************
- * Middleware to check if user is Employee or Admin from JWT
+ * Middleware to check if user is Employee or Admin from JWT Token
  **************************************** */
 Util.checkAdmin = (req, res, next) => {
   if (

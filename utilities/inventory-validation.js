@@ -126,10 +126,7 @@ validate.checkInventoryData = async (req, res, next) => {
     let nav = await utilities.getNav();
     let dropdown = await utilities.buildDropdown();
     return res.render("./inventory/add-inventory", {
-      title: "Add Inventory",
-      nav,
-      dropdown,
-      errors,
+      title: "Add Inventory",nav,dropdown,errors,
       messages: req.flash(),
       inv_make,
       inv_model,
