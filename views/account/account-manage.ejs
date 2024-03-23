@@ -1,0 +1,29 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+  <% } else { res.redirect('/') } %> <% if (messages && messages.notice) { %>
+  <p class="flash-message"><%= messages.notice %></p>
+  <% } %> <% if (account) { %>
+  
+  <div id="management-home">
+    <h2>Welcome <%= account.account_firstname %></h2>
+  
+    <% if (account.account_type === 'Employee' || account.account_type ===
+    'Admin') { %>
+    <h3>CSE Motors Inventory Management</h3>
+    <p><a href="/inv">Edit Inventory</a></p>
+    <% } %>
+  
+    <p>
+      <a href="/account/update/<%= account.account_id %>"
+        >Edit Account Information</a
+      >
+    </p>
+    <% } %> <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </div>
+  

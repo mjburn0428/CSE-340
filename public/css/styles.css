@@ -396,52 +396,117 @@ select:hover{
   color: white;
 }
 
-/* *********************
-* ADD MANAGEMENT FORM BOX
-************************ */
-
-.management {
-  display: grid;
-  gap: 2em;
-  background-color: #187a8d;
-  text-align: center;
-  padding: 2em;
-  margin: 25%;
-  max-width: 400px;
-}
-.management a {
-  font-size: larger;
-  background-color: white;
-  padding: 5px;
-  justify-content: center;
-}
-.management a:hover {
-  background-color: rgb(2, 146, 122);
-  color: white;
-}
 
 /* *********************
 * ADD MANAGEMENT FORM BOX
 ************************ */
 
-.management {
-  display: grid;
-  gap: 2em;
-  background-color: #187a8d;
+/* Management Styles */
+.management-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+.management-form button {
+  padding: 7px 5px;
+  margin: 10px auto;
+}
+
+.management-form input:required:not(:placeholder-shown):invalid,
+.management-form input:focus:invalid {
+  border: 3px solid red;
+  outline: none;
+}
+
+.management-form input:required:not(:placeholder-shown):valid {
+  border: 2px solid green;
+  outline: none;
+}
+
+.management-form input,
+.management-form select,
+.management-form textarea {
+  border-radius: 4px;
+  padding: 3px;
+  outline: none;
+}
+
+.management-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px auto;
+}
+
+.management-links a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: 0.05s;
+  border: 1px solid black;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.management-links a:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+#inventory-management-menu {
+  margin: auto;
   text-align: center;
-  padding: 2em;
-  margin: 25%;
-  max-width: 400px;
 }
-.management a {
-  font-size: larger;
-  background-color: white;
+
+#inventory-management-menu select {
+  margin: 10px auto;
+  width: fit-content;
   padding: 5px;
-  justify-content: center;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid black;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
-.management a:hover {
-  background-color: rgb(2, 146, 122);
-  color: white;
+
+/* Flash message and notice styles */
+.flash-message {
+  margin: auto;
+  width: fit-content;
+}
+
+.notice li {
+  color: red;
+  font-style: italic;
+  list-style: none;
+  margin: auto;
+}
+
+/* Account Management Styles */
+.update-button {
+  min-width: 150px;
+  width: 40%;
+  margin: 10px auto;
+}
+
+#management-home {
+  margin: auto;
+  text-align: center;
+}
+
+#management-home p {
+  margin-top: 5px;
+  width: fit-content;
+  padding: 5px 7px;
+  border-radius: 6px;
+}
+
+#management-home p:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 

@@ -5,18 +5,20 @@
 /* ***********************
  * Require Statements
  *************************/
-const expressLayouts = require("express-ejs-layouts")
-const express = require("express")
-const dotenv = require("dotenv").config()
-const app = express()
-const static = require("./routes/static")
-const baseController = require("./controllers/baseController")
-const inventoryRoute = require("./routes/inventoryRoute");
+const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
+const env = require("dotenv").config();
+const app = express();
+const static = require("./routes/static");
+const baseController = require("./controllers/baseController.js");
+const inventoryRoute = require("./routes/inventoryRoute.js");
+const accountRoute = require("./routes/accountRoute.js");
 const utilities = require("./utilities");
 const session = require("express-session");
-const pool = require("./database");
+const pool = require("./database/");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+
 
 
 /* ******************
@@ -63,13 +65,13 @@ app.set("layout", "./layouts/layout")
 app.use(static)
 
 // Index route 
-app.get("/", utilities.handleErrors(baseController.buildHome))
+app.get("/", utilities.handleError(baseController.buildHome))
 
 // Inventory route
 app.use("/inv", inventoryRoute)
 
 // Account route
-app.use("/account", require("./routes/accountRoute"))
+app.use("/account", accountRoute)
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
