@@ -1,5 +1,6 @@
 const utilities = require("../utilities/");
 const accountModel = require("../models/account-model");
+const msgModel = require("../models/message-model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -22,6 +23,7 @@ async function buildLogin(req, res, next) {
  * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav();
+  let newMsg = await msgModel.getNewMsgCount(res.locals.accountData.account_id);
   res.render("account/register", {
     title: "Register",
     nav,

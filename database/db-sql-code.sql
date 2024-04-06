@@ -243,3 +243,7 @@ UPDATE public.inventory
 SET 
     inv_image = REPLACE (inv_image, '/images/', '/images/vehicles/'), 
     inv_thumbnail = REPLACE (inv_thumbnail, '/images/', '/images/vehicles/');
+
+-- Create relationship between columns 'message_from' and 'account_id'
+ALTER TABLE IF EXISTS public.message
+ADD CONSTRAINT message_from_fk FOREIGN KEY (message_from) REFERENCES public.account (account_id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION NOT VALID;

@@ -73,6 +73,10 @@ app.use("/inv", inventoryRoute)
 // Account route
 app.use("/account", accountRoute)
 
+// Mail Route
+app.use("/inbox", require("./routes/messageRoutes"))
+
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page you were looking for.'})
